@@ -16,6 +16,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -3233395073215856969, guid: 580a62a6494de40b3a8d9fc53057459f, type: 3}
+    - target: {fileID: 6317013091718885416, guid: 0badc3d8c8388402fbfe92977193ccac, type: 3}
+      propertyPath: minSpeed
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6317013091718885416, guid: 0badc3d8c8388402fbfe92977193ccac, type: 3}
+      propertyPath: secondsToMaxSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6632342630194368255, guid: 0badc3d8c8388402fbfe92977193ccac, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
