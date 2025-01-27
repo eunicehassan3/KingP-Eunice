@@ -35,7 +35,7 @@ public class BallBehavior : MonoBehaviour
         // cooldown = 5;
         // minSpeed = .1;
         // maxSpeed = 5;
-        targetPosition = getRandomPosition();
+        // targetPosition = getRandomPosition();
 
     }
 
@@ -44,25 +44,42 @@ public class BallBehavior : MonoBehaviour
     {
         //to change position of the balls
         Vector2 currPos = gameObject.GetComponent<Transform>().position;
-        float distance = Vector2.Distance(currPos, targetPosition);
-        if(launching == false &&  onCooldown() == false){
-            launch();
+        // Vector2 currPos = transform.position;
+        // if(launching == false &&  onCooldown() == false){
+        //     launch();
+        // }
+        if(onCooldown() == false){
+            if(launching == true){
+                float currentLaunchTime = Time.time - TimeLaunchStart;
+                if(currentLaunchTime > launchDuration){
+                    startCoolDown();
+                }else{
+                    Debug.Log("unim");
+                    launch();
+                }
+             }
+            //else{
+            //     launch();
+            // }
+            
         }
-        if(distance > 0.1){
+        
+        float distance = Vector2.Distance(currPos, targetPosition);
+        if(distance > 0.1f){
             float difficulty = getDifficultyPercentage();
             float currentSpeed;
             if(launching == true){
-                float launchingForHowLong = Time.time - TimeLaunchStart;
-                if(launchingForHowLong > launchDuration){
-                    startCoolDown();
-                }
+                // float launchingForHowLong = Time.time - TimeLaunchStart;
+                // if(launchingForHowLong > launchDuration){
+                //     startCoolDown();
+                // }
                 currentSpeed = Mathf.Lerp(minLaunchSpeed, maxLaunchSpeed, difficulty) * Time.deltaTime; 
+            }else{
+                currentSpeed = Mathf.Lerp(minSpeed, maxSpeed, difficulty)  * Time.deltaTime;
+                }
                 Vector2 newPosition = Vector2.MoveTowards(currPos, targetPosition, currentSpeed);
                 transform.position = newPosition;
-            }
         }
-        
-
         else{
             if(launching == true){
                 startCoolDown();
@@ -92,10 +109,10 @@ public class BallBehavior : MonoBehaviour
     }
 
     public void launch(){
-        launching = true;
+        // launching = true;
         targetPosition = target.transform.position;
-        float TimeLaunchStart = Time.time;
         if(launching == false){
+            TimeLaunchStart = Time.time;
             launching = true;
         
         }
@@ -113,6 +130,7 @@ public class BallBehavior : MonoBehaviour
     }
 
     public void startCoolDown(){
+        launching = false;
         timeLastLaunch = Time.time;
     }
 }

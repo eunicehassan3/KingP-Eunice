@@ -267,6 +267,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ball-ice_0 Variant 3 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6317013091718885416, guid: 0badc3d8c8388402fbfe92977193ccac, type: 3}
+      propertyPath: cooldown
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6317013091718885416, guid: 0badc3d8c8388402fbfe92977193ccac, type: 3}
+      propertyPath: launching
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6317013091718885416, guid: 0badc3d8c8388402fbfe92977193ccac, type: 3}
+      propertyPath: launchDuration
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6632342630194368255, guid: 0badc3d8c8388402fbfe92977193ccac, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.1267593
@@ -2010,6 +2022,22 @@ PrefabInstance:
       propertyPath: launchDuration
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3594834447292333357, guid: 38d8dafb01df940b9b36903b76b5d738, type: 3}
+      propertyPath: maxLaunchSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3594834447292333357, guid: 38d8dafb01df940b9b36903b76b5d738, type: 3}
+      propertyPath: minLaunchSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3594834447292333357, guid: 38d8dafb01df940b9b36903b76b5d738, type: 3}
+      propertyPath: maxTimeToLaunch
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3594834447292333357, guid: 38d8dafb01df940b9b36903b76b5d738, type: 3}
+      propertyPath: minTimeToLaunch
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4198255806543381498, guid: 38d8dafb01df940b9b36903b76b5d738, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.31
@@ -2072,18 +2100,6 @@ PrefabInstance:
       value: pin_0
       objectReference: {fileID: 0}
     - target: {fileID: 7040526319814047488, guid: 6daf28b3d3d5843a1b89366903282809, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.14
-      objectReference: {fileID: 0}
-    - target: {fileID: 7040526319814047488, guid: 6daf28b3d3d5843a1b89366903282809, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.14
-      objectReference: {fileID: 0}
-    - target: {fileID: 7040526319814047488, guid: 6daf28b3d3d5843a1b89366903282809, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.14
-      objectReference: {fileID: 0}
-    - target: {fileID: 7040526319814047488, guid: 6daf28b3d3d5843a1b89366903282809, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.23
       objectReference: {fileID: 0}
@@ -2123,6 +2139,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7376866115623308088, guid: 6daf28b3d3d5843a1b89366903282809, type: 3}
+      propertyPath: speed
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2136,7 +2156,6 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 634289035}
   - {fileID: 4151670850820477505}
-  - {fileID: 7619600342663036538}
   - {fileID: 1354081411}
   - {fileID: 471798608}
   - {fileID: 1037663770}
@@ -2146,3 +2165,4 @@ SceneRoots:
   - {fileID: 609267307}
   - {fileID: 314142580}
   - {fileID: 147044700}
+  - {fileID: 7619600342663036538}
