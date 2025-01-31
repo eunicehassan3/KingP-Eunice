@@ -16,6 +16,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ball-ice_0 Variant 1 Variant Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5210519295389475814, guid: e4fd1de8d18e642059357cae35d9480b, type: 3}
+      propertyPath: m_Radius
+      value: 3.7880545
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210519295389475814, guid: e4fd1de8d18e642059357cae35d9480b, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.051977377
+      objectReference: {fileID: 0}
     - target: {fileID: 8350263131796074194, guid: e4fd1de8d18e642059357cae35d9480b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

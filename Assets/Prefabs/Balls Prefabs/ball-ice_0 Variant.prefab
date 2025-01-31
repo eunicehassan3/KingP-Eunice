@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 139137472905973454, guid: 38d8dafb01df940b9b36903b76b5d738, type: 3}
+      propertyPath: m_Radius
+      value: 3.2269206
+      objectReference: {fileID: 0}
+    - target: {fileID: 139137472905973454, guid: 38d8dafb01df940b9b36903b76b5d738, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3594834447292333357, guid: 38d8dafb01df940b9b36903b76b5d738, type: 3}
       propertyPath: secondsToMaxSpeed
       value: 16

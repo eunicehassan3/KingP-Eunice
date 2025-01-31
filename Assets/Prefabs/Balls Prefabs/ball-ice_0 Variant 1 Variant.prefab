@@ -72,6 +72,18 @@ PrefabInstance:
       propertyPath: minSpeed
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3297093176564683099, guid: 817e0a083c528440c8f84be17dbbfd52, type: 3}
+      propertyPath: m_Radius
+      value: 4.1669946
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297093176564683099, guid: 817e0a083c528440c8f84be17dbbfd52, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.083357945
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297093176564683099, guid: 817e0a083c528440c8f84be17dbbfd52, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.005275011
+      objectReference: {fileID: 0}
     - target: {fileID: 5791182930824837897, guid: 817e0a083c528440c8f84be17dbbfd52, type: 3}
       propertyPath: m_Name
       value: ball-ice_0 Variant 1 Variant

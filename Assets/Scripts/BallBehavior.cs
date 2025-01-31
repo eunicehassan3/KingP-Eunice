@@ -32,6 +32,7 @@ public class BallBehavior : MonoBehaviour
         secondsToMaxSpeed = 30;
         minLaunchSpeed = 6;
         maxLaunchSpeed = 20;
+
         // cooldown = 5;
         // minSpeed = .1;
         // maxSpeed = 5;
@@ -85,6 +86,7 @@ public class BallBehavior : MonoBehaviour
                 startCoolDown();
             }
             targetPosition = getRandomPosition();
+            
         }
 
         // //for the launching
@@ -110,21 +112,22 @@ public class BallBehavior : MonoBehaviour
 
     public void launch(){
         // launching = true;
-        targetPosition = target.transform.position;
+        
         if(launching == false){
             TimeLaunchStart = Time.time;
             launching = true;
-        
+            targetPosition = target.transform.position;
         }
     }
 
     public bool onCooldown(){
         bool res = false;
 
-        float TimeSinceLastLauch = Time.time - timeLastLaunch;
-        if(TimeSinceLastLauch < cooldown){
+        float TimeSinceLastLaunch = Time.time - timeLastLaunch;
+        if(TimeSinceLastLaunch < cooldown){
             res = true;
         }
+        Debug.Log("Cooldown Check: " + res + " | TimeSinceLastLaunch: " + TimeSinceLastLaunch + " | Cooldown: " + cooldown);
         
         return res;
     }
