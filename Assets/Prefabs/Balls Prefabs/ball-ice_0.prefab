@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4198255806543381498}
   - component: {fileID: 6479990037449926782}
-  - component: {fileID: 3594834447292333357}
   - component: {fileID: 6585489116178525112}
   - component: {fileID: 139137472905973454}
+  - component: {fileID: 3191026443754851167}
   m_Layer: 0
   m_Name: ball-ice_0
   m_TagString: Untagged
@@ -90,36 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3594834447292333357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8967117917407650972}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f806a483481946ae9c49a822bbf88a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minX: -7.22
-  maxX: 7.35
-  minY: -4.34
-  maxY: 4.34
-  minSpeed: 1.5
-  maxSpeed: 5
-  targetPosition: {x: 0, y: 0}
-  secondsToMaxSpeed: 30
-  target: {fileID: 2297723042735860596, guid: 6daf28b3d3d5843a1b89366903282809, type: 3}
-  minLaunchSpeed: 5
-  maxLaunchSpeed: 10
-  minTimeToLaunch: 5
-  maxTimeToLaunch: 5
-  cooldown: 5
-  launching: 0
-  launchDuration: 4
-  TimeLaunchStart: 0
-  timeLastLaunch: 0
 --- !u!50 &6585489116178525112
 Rigidbody2D:
   serializedVersion: 5
@@ -183,3 +153,27 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 4.402671
+--- !u!114 &3191026443754851167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8967117917407650972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e74378f8e35f14f198acea4b2d1e3bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minX: -6.31
+  maxX: 6.22
+  minY: -4.3
+  maxY: 3.7
+  target: {fileID: 0}
+  minSpeed: 1.5
+  maxSpeed: 5
+  secondsToMaxSpeed: 20
+  launching: 0
+  launchDuration: 1
+  cooldown: 3
+  targetPosition: {x: 0, y: 0}

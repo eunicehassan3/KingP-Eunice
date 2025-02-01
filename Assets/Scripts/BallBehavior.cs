@@ -33,7 +33,8 @@ public class BallBehavior : MonoBehaviour
         minLaunchSpeed = 6;
         maxLaunchSpeed = 20;
 
-        // cooldown = 5;
+        cooldown = 5;
+        launchDuration = 2f;
         // minSpeed = .1;
         // maxSpeed = 5;
         // targetPosition = getRandomPosition();
@@ -74,11 +75,11 @@ public class BallBehavior : MonoBehaviour
                 // if(launchingForHowLong > launchDuration){
                 //     startCoolDown();
                 // }
-                currentSpeed = Mathf.Lerp(minLaunchSpeed, maxLaunchSpeed, difficulty) * Time.deltaTime; 
+                currentSpeed = Mathf.Lerp(minLaunchSpeed, maxLaunchSpeed, difficulty); 
             }else{
-                currentSpeed = Mathf.Lerp(minSpeed, maxSpeed, difficulty)  * Time.deltaTime;
+                currentSpeed = Mathf.Lerp(minSpeed, maxSpeed, difficulty);
                 }
-                Vector2 newPosition = Vector2.MoveTowards(currPos, targetPosition, currentSpeed);
+                Vector2 newPosition = Vector2.MoveTowards(currPos, targetPosition, currentSpeed * Time.deltaTime);
                 transform.position = newPosition;
         }
         else{
