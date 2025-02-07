@@ -1672,7 +1672,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -296, y: 141.41}
+  m_AnchoredPosition: {x: -296.00006, y: 141.41}
   m_SizeDelta: {x: -693.14, y: -579.89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1449376057
@@ -2431,7 +2431,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -298, y: 77}
+  m_AnchoredPosition: {x: -298.00006, y: 77}
   m_SizeDelta: {x: -693.14, y: -582.69}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2139006936
@@ -2596,6 +2596,26 @@ PrefabInstance:
     - target: {fileID: 7040526319814047488, guid: 6daf28b3d3d5843a1b89366903282809, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376866115623308088, guid: 6daf28b3d3d5843a1b89366903282809, type: 3}
+      propertyPath: baseSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376866115623308088, guid: 6daf28b3d3d5843a1b89366903282809, type: 3}
+      propertyPath: dashSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376866115623308088, guid: 6daf28b3d3d5843a1b89366903282809, type: 3}
+      propertyPath: cooldownRate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376866115623308088, guid: 6daf28b3d3d5843a1b89366903282809, type: 3}
+      propertyPath: currentSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376866115623308088, guid: 6daf28b3d3d5843a1b89366903282809, type: 3}
+      propertyPath: dashDuration
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

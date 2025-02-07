@@ -1,24 +1,39 @@
+using System;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PinBehavior : MonoBehaviour
 {
-    public float speed = 10.0f;
+    public float baseSpeed = 2.0f;
     public Vector2 newPosition;
     public Vector3 mousePosG;
     Camera cam;
+    public float dashSpeed;
+    public float currentSpeed;
+    public bool dashing;
+    public float dashDuration;
+    public float dashTimeStart;
+
+    public float cooldownRate = 5.0f;
+    public static float cooldown;
+    public float timeLastDashEnded;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         cam = Camera.main;
+        dashing = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         mousePosG = cam.ScreenToWorldPoint(Input.mousePosition);
-        newPosition = Vector2.MoveTowards(transform.position, mousePosG, speed * Time.fixedDeltaTime);
+        newPosition = Vector2.MoveTowards(transform.position, mousePosG, baseSpeed * Time.fixedDeltaTime);
         transform.position = newPosition;
+
+        Dash();
 
     }
     
@@ -28,6 +43,28 @@ public class PinBehavior : MonoBehaviour
 
         if(collided == "Ball" || collided == "Wall"){
             Debug.Log("Game Over");
+        }
+    }
+
+    public void Dash(){
+          if(dashing == true){
+            float howLong = Time.time - dashTimeStart;
+            if(howLong > dashDuration * Time.deltaTime){
+                dashing = false;
+                currentSpeed = baseSpeed;
+                timeLastDashEnded = Time.time;
+                cooldownRate = cooldown;      
+            }else{
+                if(cooldown < 0.0f){
+                    cooldown = 0.0f;
+                }
+            }
+        }
+        else{
+            if(Input.GetMouseButtonDown(0) == true && cooldown == 0.0f){
+                dashing = true;
+                currentSpeed = dashSpeed;
+            }
         }
     }
 }
