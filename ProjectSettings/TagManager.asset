@@ -8,6 +8,8 @@ TagManager:
   - Ball
   - Pin
   - Overlay
+  - Restart
+  - MainMenu
   layers:
   - Default
   - TransparentFX

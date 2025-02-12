@@ -1087,6 +1087,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ball-ice_0 Variant 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5791182930824837897, guid: 817e0a083c528440c8f84be17dbbfd52, type: 3}
+      propertyPath: m_TagString
+      value: Ball
+      objectReference: {fileID: 0}
     - target: {fileID: 8485481633372501995, guid: 817e0a083c528440c8f84be17dbbfd52, type: 3}
       propertyPath: m_SortingOrder
       value: 3
@@ -1551,7 +1555,7 @@ GameObject:
   - component: {fileID: 964194747}
   m_Layer: 0
   m_Name: arena2_0
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

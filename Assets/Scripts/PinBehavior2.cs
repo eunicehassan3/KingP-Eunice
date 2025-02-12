@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PinBehavior2 : MonoBehaviour
 {
@@ -24,12 +25,12 @@ public class PinBehavior2 : MonoBehaviour
 
     void Update()
     {
-        // Update movement
+       
         mousePosG = cam.ScreenToWorldPoint(Input.mousePosition);
         Vector2 newPosition = Vector2.MoveTowards(transform.position, mousePosG, currentSpeed * Time.deltaTime);
         transform.position = newPosition;
 
-        // Handle dashing
+        
         Dash();
     }
 
@@ -37,7 +38,7 @@ public class PinBehavior2 : MonoBehaviour
     {
         if (dashing)
         {
-            // Check if dash duration is over
+            
             if (Time.time - dashTimeStart > dashDuration)
             {
                 dashing = false;
@@ -46,13 +47,13 @@ public class PinBehavior2 : MonoBehaviour
                 Debug.Log("Dash ended, cooldown started.");
             }
         }
-        else // Not currently dashing, check for cooldown and mouse click
+        else 
         {
             float timeSinceLastDash = Time.time - timeLastDashEnded;
 
             if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log("Mouse Click Detected!"); // Debugging Click
+                Debug.Log("Mouse Click Detected!"); 
 
                 if (timeSinceLastDash > cooldownRate)
                 {
@@ -66,6 +67,16 @@ public class PinBehavior2 : MonoBehaviour
                     Debug.Log("Cooldown Active. Cannot Dash Yet.");
                 }
             }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision){
+        string collided = collision.gameObject.tag;
+        Debug.Log("Collided with " + collided);
+
+        if(collided == "Ball" || collided == "Wall"){
+            SceneManager.LoadScene("GameOver");
+            Debug.Log("Game Over");
         }
     }
 }
