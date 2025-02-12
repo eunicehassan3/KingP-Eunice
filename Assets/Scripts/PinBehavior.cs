@@ -8,13 +8,13 @@ public class PinBehavior : MonoBehaviour
     public Vector2 newPosition;
     public Vector3 mousePosG;
     Camera cam;
-    public float dashSpeed;
+    public float dashSpeed = 8.0f;
     public float currentSpeed;
     public bool dashing;
-    public float dashDuration;
+    public float dashDuration = 0.3f;
     public float dashTimeStart;
 
-    public float cooldownRate = 5.0f;
+    public static float cooldownRate = 5.0f;
     public static float cooldown;
     public float timeLastDashEnded;
 
@@ -49,22 +49,26 @@ public class PinBehavior : MonoBehaviour
     public void Dash(){
           if(dashing == true){
             float howLong = Time.time - dashTimeStart;
-            if(howLong > dashDuration * Time.deltaTime){
+            currentSpeed = dashSpeed;
+            if(howLong > dashDuration){
                 dashing = false;
                 currentSpeed = baseSpeed;
                 timeLastDashEnded = Time.time;
+                Debug.Log("Dash ended, cooldown started.");
                 cooldownRate = cooldown;      
             }else{
-                if(cooldown < 0.0f){
+                cooldown = cooldown - Time.deltaTime;
+                 if(cooldown < 0.0f){
                     cooldown = 0.0f;
                 }
-            }
+                if(Input.GetMouseButtonDown(0) == true && cooldown == 0.0f){
+                    dashing = true;
+                    currentSpeed = dashSpeed;
+                    dashTimeStart = Time.time;
+                }
         }
-        else{
-            if(Input.GetMouseButtonDown(0) == true && cooldown == 0.0f){
-                dashing = true;
-                currentSpeed = dashSpeed;
-            }
+            
         }
+        
     }
 }
