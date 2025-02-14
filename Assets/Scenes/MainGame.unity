@@ -768,6 +768,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -893,6 +894,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3ccf75650d8417a9d0ecb40c0d44b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballVariants:
+  - {fileID: 8967117917407650972, guid: 38d8dafb01df940b9b36903b76b5d738, type: 3}
+  - {fileID: 3268767544229720054, guid: c50034bd6299f47d1b744a285ec68a52, type: 3}
+  - {fileID: 5791182930824837897, guid: 817e0a083c528440c8f84be17dbbfd52, type: 3}
+  - {fileID: 3877794194992662964, guid: e4fd1de8d18e642059357cae35d9480b, type: 3}
+  - {fileID: 8469292419982357126, guid: 88a40cadfb10e430b838b439ec12b5b7, type: 3}
+  - {fileID: 5860888560485167280, guid: 143d8cadf842641caaa8164ee8e88cbf, type: 3}
+  - {fileID: 5559392750986730162, guid: 919be1e23b80c48aa88cd4294a89bfa1, type: 3}
+  - {fileID: 1687136756034347112, guid: fadfd95dcf9ee44d39d7ac6eb4c1eb1a, type: 3}
+  - {fileID: 1889393283269437849, guid: 0badc3d8c8388402fbfe92977193ccac, type: 3}
+  - {fileID: 40002372531431198, guid: 20649879166ee4ae1bf7c8b4d9a6f5a9, type: 3}
+  targetObject: {fileID: 7619600342663036539}
+  startTime: 0
+  spawnRatio: 1
+  minX: -3
+  maxX: 6
+  minY: -6.21
+  maxY: 6.3
+  interval: 5
 --- !u!1 &569757236
 GameObject:
   m_ObjectHideFlags: 0
@@ -1045,11 +1077,11 @@ PrefabInstance:
       objectReference: {fileID: 7619600342663036539}
     - target: {fileID: 1615881202902522991, guid: 817e0a083c528440c8f84be17dbbfd52, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 6.04
       objectReference: {fileID: 0}
     - target: {fileID: 1615881202902522991, guid: 817e0a083c528440c8f84be17dbbfd52, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 6.2
       objectReference: {fileID: 0}
     - target: {fileID: 1615881202902522991, guid: 817e0a083c528440c8f84be17dbbfd52, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1086,6 +1118,10 @@ PrefabInstance:
     - target: {fileID: 5791182930824837897, guid: 817e0a083c528440c8f84be17dbbfd52, type: 3}
       propertyPath: m_Name
       value: ball-ice_0 Variant 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5791182930824837897, guid: 817e0a083c528440c8f84be17dbbfd52, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5791182930824837897, guid: 817e0a083c528440c8f84be17dbbfd52, type: 3}
       propertyPath: m_TagString
@@ -2843,9 +2879,9 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 619394802}
+  - {fileID: 1354081411}
   - {fileID: 4151670850820477505}
   - {fileID: 585530355}
   - {fileID: 7619600342663036538}
-  - {fileID: 1354081411}
   - {fileID: 471798608}
   - {fileID: 964194748}

@@ -24,6 +24,7 @@ public class BallBehavior2 : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        initialPosition();
         minSpeed = 1.0f;
         maxSpeed = 10.0f;
         secondsToMaxSpeed = 30;
@@ -35,7 +36,8 @@ public class BallBehavior2 : MonoBehaviour
 
     public void initialPosition(){
         body = GetComponent<Rigidbody2D>();
-        body.position = getRandomPosition();
+        transform.position = getRandomPosition();
+        // body.position = getRandomPosition();
         targetPosition = getRandomPosition();
 
         launching = false;
@@ -135,4 +137,16 @@ public class BallBehavior2 : MonoBehaviour
             
         Debug.Log(this + " Collided with: "+ collision.gameObject.name);
     }
+
+    public void setBounds(float miX, float maX, float miY, float maY){
+        minX = miX;
+        maxX = maX;
+        minY = miY;
+        maxY = maY;
+    }
+
+    public void setTarget(GameObject pin){
+        target = pin;
+}
+
 }
