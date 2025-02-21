@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -75,9 +76,17 @@ public class PinBehavior2 : MonoBehaviour
         Debug.Log("Collided with " + collided);
 
         if(collided == "Ball" || collided == "Wall"){
+            StartCoroutine(WaitForsoundAndTransition());
             SceneManager.LoadScene("GameOver");
             Debug.Log("Game Over");
         }
+    }
+
+    private IEnumerator WaitForsoundAndTransition(){
+        AudioSource src = GetComponent<AudioSource>();
+        src.Play();
+        yield return new WaitForSeconds(src.clip.length);
+
     }
 }
 

@@ -21,7 +21,7 @@ MonoBehaviour:
     prefab: {fileID: 8667958859730534897, guid: 629f7f4e488874a97bd3d2cba8bbcfdd, type: 3}
   - name: RoboPin
     prefab: {fileID: 33300583657763042, guid: 71790119a7b804c42b72ca2d5286a440, type: 3}
-  - name: Clown Pin
+  - name: Doggo Pin
     prefab: {fileID: 4562566994575494581, guid: a5d065974c5db4ea7b1f33fe14991cd8, type: 3}
   - name: Froggy Pin
     prefab: {fileID: 5133508912167263213, guid: a91eab25d4c1848a88c0004046f17d00, type: 3}

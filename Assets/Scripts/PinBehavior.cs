@@ -17,13 +17,14 @@ public class PinBehavior : MonoBehaviour
     public static float cooldownRate = 5.0f;
     public static float cooldown;
     public float timeLastDashEnded;
-
+    public AudioSource[] audioSources;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         cam = Camera.main;
         dashing = false;
+        audioSources = GetComponents<AudioSource>();
     }
 
     // Update is called once per frame

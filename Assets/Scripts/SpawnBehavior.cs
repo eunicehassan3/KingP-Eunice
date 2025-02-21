@@ -16,10 +16,13 @@ public class SpawnBehavior : MonoBehaviour
     float timer;
     public float interval = 5;
 
+    public Pins pinsDB;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         spawnBall();
+        spawnPin();
     }
 
     // Update is called once per frame
@@ -53,6 +56,10 @@ public class SpawnBehavior : MonoBehaviour
         interval = Random.Range(minNum, maxNum);
         return interval;
         
+    }
+
+    void spawnPin(){
+        targetObject = Instantiate(pinsDB.getPin(CharacterManager.selection).prefab, new Vector3(0.0f,0.0f,0.0f), Quaternion.identity);
     }
 
     
