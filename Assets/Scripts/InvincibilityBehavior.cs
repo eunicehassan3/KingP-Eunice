@@ -1,18 +1,16 @@
 using UnityEngine;
 using TMPro;
-using System;
-using System.Reflection.Emit;
 using UnityEngine.UI;
 
-public class DashIconBehavior : MonoBehaviour
+public class InvincibilityBehavior : MonoBehaviour
 {
     //  TextMeshProUGUI tmp;
     public TextMeshProUGUI label;
      
     float fill;
      public Image overlay;
-    float  cooldownRate;
-    float cooldown;
+    float  invinciblityDuration;
+    float invincibilityTime;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,26 +24,24 @@ public class DashIconBehavior : MonoBehaviour
 
         }
 
-        cooldownRate = PinBehavior2.cooldownRate;
+        invinciblityDuration = PinBehavior2.invincibilityDuration;
         overlay.fillAmount = 0.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("cooldown Rate:" + cooldownRate);
         if(PinBehavior2.cooldown > 0.0f){
-            cooldown = PinBehavior2.cooldown;
+            invincibilityTime = PinBehavior2.invincibilityTime;
             string message = "";
 
-            if(cooldown > 0.0){
+            if(invincibilityTime > 0.0){
                 
-                float fill = cooldown / cooldownRate;
-                message = string.Format("{0:0.0}", cooldown);
+                float fill = invincibilityTime / invinciblityDuration;
+                message = string.Format("{0:0.0}", invincibilityTime);
                 overlay.fillAmount = fill;
             }
             label.text = message;
         }       
     }
-        
 }

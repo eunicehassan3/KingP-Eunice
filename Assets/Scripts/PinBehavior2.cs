@@ -17,6 +17,11 @@ public class PinBehavior2 : MonoBehaviour
     public bool dashing;
     private Camera cam;
     private Vector3 mousePosG;
+    public bool invincible;
+    public static float invincibilityDuration = 10.0f;
+    public float invincibleTimeStart;
+    public float invincibleTimeLastEnded;
+    public static float invincibilityTime;
     
     void Start()
     {
@@ -32,8 +37,9 @@ public class PinBehavior2 : MonoBehaviour
         Vector2 newPosition = Vector2.MoveTowards(transform.position, mousePosG, currentSpeed * Time.deltaTime);
         transform.position = newPosition;
 
-        
+        Invincible();  
         Dash();
+        
     }
 
     public void Dash()
@@ -81,7 +87,7 @@ public class PinBehavior2 : MonoBehaviour
         string collided = collision.gameObject.tag;
         Debug.Log("Collided with " + collided);
 
-        if(collided == "Ball" || collided == "Wall"){
+        if((collided == "Ball" && !invincible) || collided == "Wall"){
             StartCoroutine(WaitForsoundAndTransition());
             SceneManager.LoadScene("GameOver");
             Debug.Log("Game Over");
@@ -93,6 +99,39 @@ public class PinBehavior2 : MonoBehaviour
         src.Play();
         yield return new WaitForSeconds(src.clip.length);
 
+    }
+
+    public void Invincible(){
+        if(Input.GetKeyDown(KeyCode.Space)){
+            invincible = true;
+            invincibleTimeStart = Time.time;
+        }
+
+        if(invincible){
+            invincibilityTime = Time.time - invincibleTimeStart;
+            if(invincibilityTime >= invincibilityDuration){
+                invincible = false;
+            }
+        }
+
+        // invincibilityTime = 0.0f;
+        // invincibilityTime += Time.deltaTime;
+
+        // if(invincibilityTime >= invincibilityDuration){
+        //     invincible = false;
+        //     invincibilityTime = 0.0f;
+        // }
+        
+        // if(invincible){
+        //     float timer = 0;
+        //     timer += Time.deltaTime;
+
+        //     if(timer > invincibilityDuration){
+        //         timer= 0;
+        //         invincible = false;
+
+        //     }
+        // }
     }
 }
 
