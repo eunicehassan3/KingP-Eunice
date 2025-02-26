@@ -7,49 +7,46 @@ using UnityEngine.UI;
 public class DashIconBehavior : MonoBehaviour
 {
     //  TextMeshProUGUI tmp;
-     public TextMeshProUGUI label;
+    public TextMeshProUGUI label;
+     
     float fill;
      public Image overlay;
-    //  PinBehavior cooldown;
-    public float  cooldownRate;
+    float  cooldownRate;
+    float cooldown;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // tmp = GetComponent<TextMeshProUGUI>(); 
-        label = GetComponent<TextMeshProUGUI>();
+        label = GetComponentInChildren<TextMeshProUGUI>();
+
         Image[] images = GetComponentsInChildren<Image>();
-        for(int i  =0; i < images.Length; i++){
+        for(int i  = 0; i < images.Length; i++){
             if(images[i].tag == "Overlay"){
                 overlay = images[i];
             }
 
         }
 
-        cooldownRate = PinBehavior.cooldownRate;
-        overlay.fillAmount =0.0f;
-        // float cooldown;
-        // float cooldownRate;
+        cooldownRate = PinBehavior2.cooldownRate;
+        overlay.fillAmount = 0.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(PinBehavior.cooldown > 0.0f){
-            
-            float cooldown = PinBehavior.cooldown;
-            float cooldownRate = PinBehavior.cooldownRate;
-            String message = "";
-
-            message = string.Format("0:0:0", PinBehavior.cooldown);
+        Debug.Log("cooldown Rate:" + cooldownRate);
+        if(PinBehavior2.cooldown > 0.0f){
+            cooldown = PinBehavior2.cooldown;
+            string message = "";
 
             if(cooldown > 0.0){
+                
                 float fill = cooldown / cooldownRate;
+                message = string.Format("{0:0.0}", cooldown);
+                overlay.fillAmount = fill;
             }
-
-            label.SetText(message);
-            overlay.fillAmount = fill;
-            // tmp.text = message;
-    }
+            label.text = message;
+            
+    }       
         }
         
 }

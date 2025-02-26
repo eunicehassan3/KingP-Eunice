@@ -10,7 +10,8 @@ public class PinBehavior2 : MonoBehaviour
     public float dashDuration = 0.3f;
     public float dashTimeStart;
     
-    public static float cooldownRate = 1.0f;
+    public static float cooldownRate = 5.0f;
+    public static float cooldown = 0.0f;
     public float timeLastDashEnded;
 
     public bool dashing;
@@ -45,14 +46,18 @@ public class PinBehavior2 : MonoBehaviour
                 dashing = false;
                 currentSpeed = baseSpeed;
                 timeLastDashEnded = Time.time;
+                cooldown = cooldownRate;
                 Debug.Log("Dash ended, cooldown started.");
             }
         }
         else 
         {
             float timeSinceLastDash = Time.time - timeLastDashEnded;
-
-            if (Input.GetMouseButtonDown(0))
+            cooldown = cooldown - Time.deltaTime;
+            if(cooldown <0.0){
+                cooldown = 0.0f;
+            }
+            if (cooldown == 0.0 && Input.GetMouseButtonDown(0))
             {
                 Debug.Log("Mouse Click Detected!"); 
 
@@ -69,6 +74,7 @@ public class PinBehavior2 : MonoBehaviour
                 }
             }
         }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision){
