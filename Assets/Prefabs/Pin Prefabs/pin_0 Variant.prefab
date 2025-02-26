@@ -24,6 +24,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pin_0 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2297723042735860596, guid: 6daf28b3d3d5843a1b89366903282809, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3611714491655337357, guid: 6daf28b3d3d5843a1b89366903282809, type: 3}
       propertyPath: m_Sprite
       value: 

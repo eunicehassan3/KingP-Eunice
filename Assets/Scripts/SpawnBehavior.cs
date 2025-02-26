@@ -29,7 +29,7 @@ public class SpawnBehavior : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        interval = getInterval(5,13);
+        interval = getInterval(20,100);
         if(timer > interval){
             spawnBall();
             timer = 0;
@@ -60,6 +60,7 @@ public class SpawnBehavior : MonoBehaviour
 
     void spawnPin(){
         targetObject = Instantiate(pinsDB.getPin(CharacterManager.selection).prefab, new Vector3(0.0f,0.0f,0.0f), Quaternion.identity);
+        targetObject.GetComponent<SpriteRenderer>().sortingOrder = 3;
     }
 
     
