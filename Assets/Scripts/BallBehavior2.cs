@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class BallBehavior2 : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class BallBehavior2 : MonoBehaviour
     public float cooldown = 5.0f;  // Cooldown before next launch
     private float timeLaunchStart;
     private float timeLastLaunch;
+    public static float score;
 
     Rigidbody2D body;
     public bool rerouting;
@@ -28,6 +30,7 @@ public class BallBehavior2 : MonoBehaviour
         minSpeed = 1.0f;
         maxSpeed = 10.0f;
         secondsToMaxSpeed = 30;
+        score = 0;
     }
 
     void Update(){
@@ -46,7 +49,6 @@ public class BallBehavior2 : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {   
-        // Vector2 currPos = gameObject.GetComponent<Transform>().position;
         body = GetComponent<Rigidbody2D>();
         Vector2 currPos = body.position;
         float currentSpeed = Mathf.Lerp(minSpeed, maxSpeed, getDifficultyPercentage());
@@ -66,10 +68,10 @@ public class BallBehavior2 : MonoBehaviour
             targetPosition = (Vector2)target.transform.position;
         }
         else{
-             targetPosition = getRandomPosition();
-            // targetPosition = currPos;
             
+             targetPosition = getRandomPosition();     
         }
+        score += 1 * Time.deltaTime ;
 
         Vector2 newPosition = Vector2.MoveTowards(currPos, targetPosition, currentSpeed * Time.deltaTime);
         body.MovePosition(newPosition);
@@ -94,7 +96,7 @@ public class BallBehavior2 : MonoBehaviour
     {
         launching = false;
         timeLastLaunch = Time.time;
-        Debug.Log("Cooldown started...");
+        // Debug.Log("Cooldown started...");
     }
 
     private bool onCooldown()
@@ -135,7 +137,7 @@ public class BallBehavior2 : MonoBehaviour
             Reroute(collision);
         }
             
-        Debug.Log(this + " Collided with: "+ collision.gameObject.name);
+        // Debug.Log(this + " Collided with: "+ collision.gameObject.name);
     }
 
     public void setBounds(float miX, float maX, float miY, float maY){
@@ -147,6 +149,10 @@ public class BallBehavior2 : MonoBehaviour
 
     public void setTarget(GameObject pin){
         target = pin;
-}
+    }
+
+    public float getScore(){
+        return score;
+    }
 
 }

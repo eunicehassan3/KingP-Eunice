@@ -21,8 +21,8 @@ public class SpawnBehavior : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        spawnBall();
         spawnPin();
+        spawnBall();
     }
 
     // Update is called once per frame
@@ -46,7 +46,6 @@ public class SpawnBehavior : MonoBehaviour
             ballBehavior.setBounds(minX,maxX,minY,maxY);
             ballBehavior.setTarget(targetObject);
             ballBehavior.initialPosition();
-            // ballBehavior.gameObject.layer = 3;
 
         }
     }

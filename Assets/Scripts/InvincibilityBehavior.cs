@@ -31,14 +31,17 @@ public class InvincibilityBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(PinBehavior2.cooldown > 0.0f){
+        if(PinBehavior2.invincibilityTime > 0.0f){
             invincibilityTime = PinBehavior2.invincibilityTime;
             string message = "";
 
-            if(invincibilityTime > 0.0){
+        if(invincibilityTime > 0.0){
                 
                 float fill = invincibilityTime / invinciblityDuration;
                 message = string.Format("{0:0.0}", invincibilityTime);
+                overlay.fillAmount = fill;
+            }else{
+                fill = 0.0f;
                 overlay.fillAmount = fill;
             }
             label.text = message;

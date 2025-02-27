@@ -170,9 +170,9 @@ MonoBehaviour:
   minY: -4.3
   maxY: 3.7
   target: {fileID: 0}
-  minSpeed: 1.5
-  maxSpeed: 5
-  secondsToMaxSpeed: 20
+  minSpeed: 1
+  maxSpeed: 3
+  secondsToMaxSpeed: 1000
   launching: 0
   launchDuration: 3
   cooldown: 5

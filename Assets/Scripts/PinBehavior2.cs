@@ -28,6 +28,7 @@ public class PinBehavior2 : MonoBehaviour
         cam = Camera.main;
         currentSpeed = baseSpeed;
         dashing = false;
+        cooldown = 0.0f;
     }
 
     void Update()
@@ -87,7 +88,7 @@ public class PinBehavior2 : MonoBehaviour
         string collided = collision.gameObject.tag;
         Debug.Log("Collided with " + collided);
 
-        if((collided == "Ball" && !invincible) || collided == "Wall"){
+        if((collided == "Ball" && !invincible) || (collided == "Wall" && !invincible)){
             StartCoroutine(WaitForsoundAndTransition());
             SceneManager.LoadScene("GameOver");
             Debug.Log("Game Over");
@@ -102,7 +103,10 @@ public class PinBehavior2 : MonoBehaviour
     }
 
     public void Invincible(){
-        if(Input.GetKeyDown(KeyCode.Space)){
+         float timeSinceLastInvincibility = Time.time - invincibleTimeLastEnded; 
+
+
+        if(Input.GetKeyDown(KeyCode.Space) && timeSinceLastInvincibility >= cooldownRate){
             invincible = true;
             invincibleTimeStart = Time.time;
         }
@@ -111,27 +115,13 @@ public class PinBehavior2 : MonoBehaviour
             invincibilityTime = Time.time - invincibleTimeStart;
             if(invincibilityTime >= invincibilityDuration){
                 invincible = false;
+                // cooldown = cooldownRate;
+                invincibleTimeLastEnded = Time.time;
+
             }
         }
 
-        // invincibilityTime = 0.0f;
-        // invincibilityTime += Time.deltaTime;
-
-        // if(invincibilityTime >= invincibilityDuration){
-        //     invincible = false;
-        //     invincibilityTime = 0.0f;
-        // }
         
-        // if(invincible){
-        //     float timer = 0;
-        //     timer += Time.deltaTime;
-
-        //     if(timer > invincibilityDuration){
-        //         timer= 0;
-        //         invincible = false;
-
-        //     }
-        // }
     }
 }
 

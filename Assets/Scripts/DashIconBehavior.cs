@@ -43,6 +43,8 @@ public class DashIconBehavior : MonoBehaviour
                 float fill = cooldown / cooldownRate;
                 message = string.Format("{0:0.0}", cooldown);
                 overlay.fillAmount = fill;
+            }else{
+                cooldown = 0.0f;
             }
             label.text = message;
         }       
