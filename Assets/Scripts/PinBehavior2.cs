@@ -123,7 +123,7 @@ public class PinBehavior2 : MonoBehaviour
             invincible = true;
             spriteRend.color = Color.blue;
             invincibleTimeStart = Time.time;
-            invincibiltyCooldown = invincibilityCooldownRate + invincibilityDuration;
+            invincibiltyCooldown = invincibilityCooldownRate;
         }
 
         if(invincible){
