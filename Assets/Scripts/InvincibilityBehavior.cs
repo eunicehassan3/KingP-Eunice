@@ -10,7 +10,10 @@ public class InvincibilityBehavior : MonoBehaviour
     float fill;
      public Image overlay;
     float  invinciblityDuration;
-    float invincibilityTime;
+     float invincibilityTime;
+    public float invincibiltyCooldown;
+    public float invincibilityCooldownRate;
+    public float cooldownRate;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -25,24 +28,25 @@ public class InvincibilityBehavior : MonoBehaviour
         }
 
         invinciblityDuration = PinBehavior2.invincibilityDuration;
+        invincibilityCooldownRate = PinBehavior2.invincibilityCooldownRate;
         overlay.fillAmount = 0.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(PinBehavior2.invincibilityTime > 0.0f){
-            invincibilityTime = PinBehavior2.invincibilityTime;
+        if(PinBehavior2.invincibiltyCooldown > 0.0f){
+            invincibiltyCooldown = PinBehavior2.invincibiltyCooldown;
             string message = "";
 
         if(invincibilityTime > 0.0){
                 
-                float fill = invincibilityTime / invinciblityDuration;
-                message = string.Format("{0:0.0}", invincibilityTime);
+                // float fill = invincibilityTime / invinciblityDuration;
+                float fill = invincibiltyCooldown / invincibilityCooldownRate;
+                message = string.Format("{0:0.0}", invincibiltyCooldown);
                 overlay.fillAmount = fill;
             }else{
-                fill = 0.0f;
-                overlay.fillAmount = fill;
+                overlay.fillAmount = 0.0f;
             }
             label.text = message;
         }       

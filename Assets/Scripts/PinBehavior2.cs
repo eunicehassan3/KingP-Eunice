@@ -22,6 +22,9 @@ public class PinBehavior2 : MonoBehaviour
     public float invincibleTimeStart;
     public float invincibleTimeLastEnded;
     public static float invincibilityTime;
+    public static float invincibiltyCooldown;
+    public static float invincibilityCooldownRate = 10.0f;
+    public SpriteRenderer spriteRend;
     
     void Start()
     {
@@ -29,6 +32,7 @@ public class PinBehavior2 : MonoBehaviour
         currentSpeed = baseSpeed;
         dashing = false;
         cooldown = 0.0f;
+        spriteRend = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -54,6 +58,8 @@ public class PinBehavior2 : MonoBehaviour
                 currentSpeed = baseSpeed;
                 timeLastDashEnded = Time.time;
                 cooldown = cooldownRate;
+                // Color white = new Color(255,255,255, 255);
+                spriteRend.color = Color.white;
                 Debug.Log("Dash ended, cooldown started.");
             }
         }
@@ -72,6 +78,9 @@ public class PinBehavior2 : MonoBehaviour
                 {
                     Debug.Log("Dashing Started!");
                     dashing = true;
+                    // Color purple = new Color(155,30,215, 255);
+                    // gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
+                    spriteRend.color = Color.magenta;
                     currentSpeed = dashSpeed;
                     dashTimeStart = Time.time;
                 }
@@ -103,20 +112,26 @@ public class PinBehavior2 : MonoBehaviour
     }
 
     public void Invincible(){
-         float timeSinceLastInvincibility = Time.time - invincibleTimeLastEnded; 
+        invincibiltyCooldown -= Time.deltaTime;
+        if(invincibiltyCooldown < 0.0f){
+            invincibiltyCooldown = 0.0f;
+        }
+        //  float timeSinceLastInvincibility = Time.time - invincibleTimeLastEnded; 
 
-
-        if(Input.GetKeyDown(KeyCode.Space) && timeSinceLastInvincibility >= cooldownRate){
+        // && timeSinceLastInvincibility >= cooldownRate
+        if(Input.GetKeyDown(KeyCode.Space) && cooldown==0.0f){
             invincible = true;
+            spriteRend.color = Color.blue;
             invincibleTimeStart = Time.time;
+            invincibiltyCooldown = invincibilityCooldownRate + invincibilityDuration;
         }
 
         if(invincible){
             invincibilityTime = Time.time - invincibleTimeStart;
             if(invincibilityTime >= invincibilityDuration){
                 invincible = false;
-                // cooldown = cooldownRate;
-                invincibleTimeLastEnded = Time.time;
+                spriteRend.color = Color.white;
+    
 
             }
         }
